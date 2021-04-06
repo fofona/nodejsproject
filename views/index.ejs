@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <%- include('_inc_head') %>
+        <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+
+<body>
+
+    <div id="corps">
+        <div class="Connexion">
+            <h1>SE CONNECTER </h1>
+            <div id="mainForm" class="col-lg-10 col-md-15 col-sm-20">
+                <img src="images/logoo.PNG" width="150" />
+                <h1>
+                    <%= locals.APPNAME %>
+                        <%= locals.VERSION %>
+                </h1>
+
+                <form action="/home" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+              <span class="fa fa-user"></span>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" name="email" placeholder="E-Mail" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+              <span class="fa fa-key"></span>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" name="password" placeholder="Password" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <% if (locals.error) { %>
+
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <div class="alert alert-danger">
+                                    <%= locals.error %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% } %>
+                            <div class="row">
+                                <div class="col-10 offset-1">
+                                    <div class="input-group mb-3">
+                                        <label><input type="checkbox" /> Keep user's informations</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 offset-lg-1 col-sm-12">
+                                    <a href="./register">New account</a>
+                                </div>
+                                <div class="col-lg-5 col-sm-12 text-lg-right text-md-center text-sm-center text-xs-center">
+                                    <input type="submit" class="btn btn-primary btn-large" value="Login" />
+                                </div>
+                                <div><input type="file" name="imageTouploade"></div>
+                            </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

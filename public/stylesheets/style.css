@@ -1,0 +1,74 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#corps {
+    width: 100%;
+    height: 700px;
+    border: none;
+    background: #d0d6d9;
+    padding-top: 80px;
+}
+
+.Connexion {
+    width: 40%;
+    height: 450px;
+    background: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    border: #313131 solid 2px;
+}
+
+.Enregistrement {
+    width: 45%;
+    height: 500px;
+    background: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    border: #313131 solid 2px;
+}
+
+.btn btn-primary btn-large {
+    border: none;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 10px;
+    cursor: pointer;
+}
+
+*/ #mainForm {
+    min-height: 100px;
+    background: #fff;
+    margin: 80px auto;
+    padding: 30px 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#mainForm img {
+    display: block;
+    margin: 20px auto;
+}
+
+#mainForm h1 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: -20px;
+}

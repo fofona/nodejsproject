@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <%- include('_inc_head') %>
+        <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+
+    <div id="corps">
+
+        <div class="Enregistrement">
+            <h1>CREER UN NOUVAEU COMPTE</h1>
+            <div id="mainForm" class="col-17">
+                <img src="images/logoo.PNG" width="150" />
+                <h1>
+                    <%= locals.APPNAME %>
+                        <%= locals.VERSION %>
+                </h1>
+
+                <form action="./registerUser" method="post">
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                      <span class="fa fa-user"></span>
+                                    </span>
+                                </div>
+                                <input type="text" name="name" class="form-control" placeholder="Name" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                      <span class="fa fa-user"></span>
+                                    </span>
+                                </div>
+                                <input type="text" name="email" class="form-control" placeholder="E-Mail" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                      <span class="fa fa-key"></span>
+                                    </span>
+                                </div>
+                                <input type="password" name="password" class="form-control" placeholder="Password" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                      <span class="fa fa-key"></span>
+                                    </span>
+                                </div>
+                                <input type="password" name="confirmation" class="form-control" placeholder="Confirmation" />
+                            </div>
+                        </div>
+                    </div>
+                    <% if ( locals.error ){ %>
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <div class="alert alert-danger">
+                                    <%= locals.error %>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                            <div class="row">
+                                <div class="col-10 offset-1">
+                                    <div class="input-group mb-3">
+                                        <label><input type="checkbox" value="1" name="checkConditions" />
+                    Accept <a href="./terms">terms and conditions</a></label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-5 offset-1">
+                    <a href="./">Login</a>
+                </div>
+                <div class="col-5 text-right">
+                    <input type="submit" class="btn btn-primary btn-large" value="Create" />
+                </div>
+            </div>
+          </form>
+
+</body>
+
+</html>
