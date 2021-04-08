@@ -10,6 +10,7 @@
         "body-parser": "^1.18.3",
         "cookie-parser": "~1.4.4",
         "debug": "~2.6.9",
+        "dotenv": "^8.2.0",
         "ejs": "^3.1.6",
         "express": "~4.16.1",
         "express-upload": "^0.1.0",

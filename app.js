@@ -6,6 +6,18 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var dotenv = require("dotenv")
+dotenv.config()
+
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/Stackunderflow', { useNewUrlParser: true, useUnifiedTopology: true });
+/*
+db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log("Connecté à la base Stackunderflow")
+});*/
 
 var app = express();
 
