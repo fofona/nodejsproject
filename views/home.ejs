@@ -16,19 +16,19 @@
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js"></script>
 </head>
 
-<body>
+<body style="background-color: #F1F1F1;">
     <header>
-        <div class="uk-navbar-left">
+        <div class="uk-navbar-left" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             <a class="uk-navbar-item uk-logo" href="#">
-                <img src="images/logoo.png" alt="" width="200px" height="200px" style="margin-left: 160px" />
+                <img src="images/logoo.png" alt="" width="200px" height="200px" style="margin-left:160px;" />
             </a>
 
             <div class="uk-button-group">
                 <button class="uk-button uk-button-default">Category</button>
                 <div class="uk-inline">
                     <button class="uk-button uk-button-default" type="button">
-              <span uk-icon="icon:  triangle-down"></span>
-            </button>
+            <span uk-icon="icon:  triangle-down"></span>
+          </button>
                     <div uk-dropdown="mode: click; boundary: ! .uk-button-group; boundary-align: true;">
                         <ul class="uk-nav uk-dropdown-nav">
                             <li><a href="#">HTML</a></li>
@@ -40,24 +40,14 @@
                 </div>
             </div>
             <div class="uk-navbar-item">
-                <form class="uk-search uk-search-navbar" style="
-              border: 2px solid;
-              width: 500px;
-              height: 40px;
-              color: #d3d3d3;
-              border-radius: 3px;
-            ">
+                <form class="uk-search uk-search-navbar" style="border: 2px solid; width: 500px; height: 40px; color:#D3D3D3; border-radius: 3px;">
                     <span uk-search-icon></span>
                     <input class="uk-search-input" type="search" placeholder="Search" />
                 </form>
             </div>
-            <div class="uk-float-left">
-                <button class="btn btn-dark" style="width: 130px; color: #ffffff">
-            <a href="/question"> Ask Question </a>
-          </button>
-            </div>
             <a href="./logout"><button class="btn btn-dar" style="width: 150px">Se deconnecter</button></a>
         </div>
+
     </header>
 </body>
 

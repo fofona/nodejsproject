@@ -21,13 +21,16 @@
                         <%= locals.VERSION %>
                 </h1>
 
-                <form action="/home" method="post" enctype="multipart/form-data">
+
+                <form action="/home" method="post">
+                    <p><b>Formulaire de connexion</b></p>
+
                     <div class="row">
                         <div class="col-10 offset-1">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                      <span class="fa fa-user"></span>
+                          <span class="fas fa-at fa-style1"></span>
                                     </span>
                                 </div>
                                 <input type="text" class="form-control" name="email" placeholder="E-Mail" />
@@ -39,16 +42,14 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                      <span class="fa fa-key"></span>
+                          <span class="fa fa-key fa-style1"></span>
                                     </span>
                                 </div>
                                 <input type="password" class="form-control" name="password" placeholder="Password" />
                             </div>
                         </div>
                     </div>
-
-                    <% if (locals.error) { %>
-
+                    <% if ( locals.error ){ %>
                         <div class="row">
                             <div class="col-10 offset-1">
                                 <div class="alert alert-danger">
@@ -56,34 +57,21 @@
                                 </div>
                             </div>
                         </div>
-
                         <% } %>
                             <div class="row">
-                                <div class="col-10 offset-1">
-                                    <div class="input-group mb-3">
-                                        <label><input type="checkbox" /> Keep user's informations</label
-                  >
-                </div>
-              </div>
+                                <div class="col-lg-5 offset-lg-1 col-sm-12">
+                                    <a href="./register">S'inscrire</a>
+                                </div>
+                                <div class="col-lg-5 col-sm-12 text-lg-right text-md-center text-sm-center text-xs-center">
+
+                                    <input type="submit" class="btn btn-primary btn-large" value="Login" />
+                                </div>
+                            </div>
+
+                </form>
             </div>
-            <div class="row">
-              <div class="col-lg-5 offset-lg-1 col-sm-12">
-                <a href="./register">New account</a>
-              </div>
-              <div
-                class="col-lg-5 col-sm-12 text-lg-right text-md-center text-sm-center text-xs-center"
-              >
-                <input
-                  type="submit"
-                  class="btn btn-primary btn-large"
-                  value="Login"
-                />
-              </div>
-              <!-- <div><input type="file" name="imageTouploade"></div>-->
-            </div>
-          </form>
         </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>
