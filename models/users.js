@@ -7,4 +7,4 @@ var userSchema = mongoose.Schema({
     confirmation: String
 
 })
-module.exports = mongoose.model('Users', userSchema)
+module.exports = mongoose.model('users', userSchema)
