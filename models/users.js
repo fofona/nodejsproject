@@ -6,5 +6,6 @@ var userSchema = mongoose.Schema({
     password: String,
     confirmation: String
 
+
 })
 module.exports = mongoose.model('users', userSchema)
