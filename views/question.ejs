@@ -49,46 +49,53 @@
         </div>
 
     </header>
-    <div style="padding-top:2px; height: 1000px;">
-        <h3 style="margin-top: 50px; padding-bottom: 20px; margin-left: 195px; font-weight: bold; ">Ask a public question</h3>
-        <div style="background-color: white; width: 1000px; height: 550px; margin-left: 195px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <div id="question-form">
-                <div id="title" style="margin-left: 30px; padding-top: 20px;">
-                    <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Title</p>
-                    <p>Be specific and ask your question with precision</p>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="e.g. Is it possible to make a text in bold?" style="width: 950px;">
+    <form action="/your_question" method="post">
+        <div style="padding-top:2px; height: 1000px;">
+            <h3 style="margin-top: 50px; padding-bottom: 20px; margin-left: 195px; font-weight: bold; ">Ask a public question</h3>
+            <div style="background-color: white; width: 1000px; height: 550px; margin-left: 195px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <div id="question-form">
+                    <div id="title" style="margin-left: 30px; padding-top: 20px;">
+                        <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Title</p>
+                        <p>Be specific and ask your question with precision</p>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="tags" placeholder="e.g. Is it possible to make a text in bold?" style="width: 950px;">
+                    </div>
+
+                    <div id="body" style="margin-left: 30px; padding-top: 20px;">
+                        <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Body</p>
+                        <p>Include all the information someone would need to answer your question</p>
+                        <textarea type="text" class="form-control" id="exampleFormControlInput1" name="texteQ" style="width:950px; height:150px;"></textarea>
+
+                    </div>
+
+                    <div class="uk-margin" style="margin-left: 30px; padding-top: 20px;">
+                        <select type="text" class="uk-select" name="category" style="width: 950px;">
+            <option value="html">HTML</option>
+            <option value="java">JAVA</option>
+            <option value="php">PHP</option>
+            <option value="css">CSS</option>
+        </select>
+                    </div>
                 </div>
 
-                <div id="body" style="margin-left: 30px; padding-top: 20px;">
-                    <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Body</p>
-                    <p>Include all the information someone would need to answer your question</p>
-                    <textarea type="text" class="form-control" id="exampleFormControlInput1" name="message" style="width:950px; height:150px;"></textarea>
-                    <% if (locals.error){ %>
-                        <br />
-                        <div class="alert alert-danger">Error...</div>
-                        <%} %>
-                </div>
+                </br>
+                </br>
+                </br>
+                <% if ( locals.error ){ %>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="alert alert-danger">
+                                <%= locals.error %>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
 
-                <div id="category" style="margin-left: 30px; padding-top: 20px;">
-                    <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Category</p>
+                        <input type="submit" class="btn btn-primary btn-large" value="Post_your_question" />
 
-                </div>
+
             </div>
-            <label for="Category" style="margin-left: 30px;">Choose the category of your question:</label>
-            <select id="category" name="category" class="form-control" id="exampleFormControlInput1" style="width: auto; margin-left: 350px; margin-top: -35px;">
-        <option value="html">HTML</option>
-        <option value="java">JAVA</option>
-        <option value="php">PHP</option>
-        <option value="css">CSS</option>
-    </select>
-            </br>
-            </br>
-            </br>
-            <button type="submit" class="btn btn-dark" style="width: 200px;"><a href="/home">
-                Post your question</button></a>
+    </form>
 
-        </div>
-    </div>
 
 
 </body>

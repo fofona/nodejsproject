@@ -40,9 +40,9 @@ app.use('/users', usersRouter);
 app.use((req, res, next) => {
     res.locals = {
 
-        "users": {}
+        "user": {}
     }
-    if (req.session.users)
+    if (req.session.user)
         res.locals.user = req.session.user
     next()
 })

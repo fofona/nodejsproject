@@ -1,24 +1,37 @@
 var express = require("express");
+var session = require("express-session");
 var router = express.Router();
 var bcrypt = require("bcrypt");
 var Users = require("../models/users");
-//var security_md = require("../middlewares/security");
+var question = require("../models/QuestionReponse");
+var security = require("../middlewares/security");
+var mongoose = require('mongoose');
 
 
-router.get("/", function(req, res, next) {
+router.get("/", /*security.checkIfUserConnected,*/ function(req, res, next) {
     res.render("index")
 });
 //router.post("/home", function(req, res, next) {
 // res.render("home");
 //})
-router.get("/register", function(req, res, next) {
+/*router.get("/", async(req, res) => {
+
+    var dataPublications = await question.find().sort({ datetime: -1 });
+    res.locals.publications = dataPublications;
+
+    if (req.query.error)
+        res.render("home", { error: req.query.error })
+    else
+        res.render("home")
+})*/
+router.get("/register", /*security.checkIfUserConnected,*/ function(req, res, next) {
     res.render("register");
 });
 router.get("/question", function(req, res, next) {
     res.render("question");
 });
 // creer une route pour la confirmation des données de l'utilisateur
-router.post("/registerUser", async(req, res, next) => {
+router.post("/registerUser", /*security.checkIfUserConnected, */ async(req, res, next) => {
     //req.body permet d'acceder aux objects de type json
     var postData = req.body;
     if (
@@ -81,6 +94,39 @@ router.post('/home', async(req, res) => {
     }
 
 })
+
+
+router.post("/your_question", async(req, res) => {
+
+    var postData = req.body;
+
+
+    if (
+        postData.texteQ != "" &&
+        postData.category != "" &&
+        postData.tags != "" &&
+        postData.Reponses != "") {
+
+        donnee = new question({
+            tags: postData.tags,
+            category: postData.category,
+            texteQ: postData.texteQ,
+            datetime: new Date(),
+            // user: req.session.user._id,
+            //Reponses: array[{
+            // texteR:postData.texteR,
+
+        });
+        //2.2 - INSERT INTO DATABASE
+        await donnee.save();
+        //3 - GO BACK TO HOME PAGE
+        res.render("home")
+    } else {
+        res.locals = { error: "Tous les champs sont obligation" }
+        res.render("question")
+    }
+
+});
 
 
 
