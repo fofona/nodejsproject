@@ -41,10 +41,10 @@ app.use((req, res, next) => {
     res.locals = {
         "APPNAME": process.env.APPNAME,
         "VERSION": process.env.VERSION,
-        "user": {}
+        "users": {}
     }
-    if (req.session.user)
-        res.locals.user = req.session.user
+    if (req.session.users)
+        res.locals.users = req.session.users
     next()
 })
 

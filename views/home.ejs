@@ -74,24 +74,32 @@
         <div class="card">
           <div class="card-header">
             <p><%=qrcollections.tags %></p>
+            
           </div>
           <div class="card-body">
             
             <p><%=qrcollections.texteQ %></p>
           </div>
           <div class="card-footer">
-            <span class="badge badge-info" ,style="float: right;">
-              <% var d=new Date( qrcollections.datetime ); %> <%= d.getHours() + ":" +
-              d.getMinutes() %>
+            <span class="badge badge-info" ,style="float: left;">
+              <% var d=new Date( qrcollections.datetime ); %> <%= d.getHours() + ":" +d.getMinutes() + "__" +d.getDate() + "/" +d.getMonth()  + "/" +d.getFullYear()%>
             </span>
             <p style="float: leftt"><%=qrcollections.category %></p>
-          </div>
+            <div class="uk-float-right">
+              <button class="btn btn-dark" style="width: 130px; color: #ffffff">
+          <a href="#" style="text-decoration: none; color: #ffffff">
+            Reponses
+          </a>
+            </button>
         </div>
-  
-        <% }); %>
-      </div>
-      <script src="js/jquery-3.6.0.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
+        </div>
+        </div>
 
-  </body>
+        <% }); %>
+            </div>
+            <script src="js/jquery-3.6.0.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+
+</body>
+
 </html>

@@ -13,7 +13,7 @@ router.get("/", /*security.checkIfUserConnected,*/ function(req, res, next) {
 });
 
 //router.post("/home",security.checkIfUserNotConnected, async(req, res, next) {
-// res.render("home");
+// res.render("home");s
 //})
 router.get("/home", async(req, res) => {
 
@@ -139,7 +139,7 @@ router.post("/your_question", async(req, res) => {
 router.get("/logout", (req, res) => {
     //DESTROY SESSIONS
     //req.session.destroy();
-    res.render("index")
+    res.redirect("index")
 })
 
 

@@ -1,12 +1,12 @@
 module.exports = {
-    checkIfUserConnected: (req, res, next) => {
-        if (req.session.user) {
+    checkIfUsersConnected: (req, res, next) => {
+        if (req.session.users) {
             res.redirect("/home")
         } else
             next()
     },
-    checkIfUserNotConnected: (req, res, next) => {
-        if (req.session.user) {
+    checkIfUsersNotConnected: (req, res, next) => {
+        if (req.session.users) {
             next()
         } else
             res.redirect("/")
