@@ -11,19 +11,21 @@ var mongoose = require('mongoose');
 router.get("/", /*security.checkIfUserConnected,*/ function(req, res, next) {
     res.render("index")
 });
-//router.post("/home", function(req, res, next) {
+
+//router.post("/home",security.checkIfUserNotConnected, async(req, res, next) {
 // res.render("home");
 //})
-/*router.get("/", async(req, res) => {
+router.get("/home", async(req, res) => {
 
     var dataPublications = await question.find().sort({ datetime: -1 });
-    res.locals.publications = dataPublications;
+    res.locals.QRCollections = dataPublications;
+    console.log(dataPublications)
 
     if (req.query.error)
         res.render("home", { error: req.query.error })
     else
         res.render("home")
-})*/
+});
 router.get("/register", /*security.checkIfUserConnected,*/ function(req, res, next) {
     res.render("register");
 });
@@ -71,7 +73,7 @@ router.post("/registerUser", /*security.checkIfUserConnected, */ async(req, res,
 })
 
 
-router.post('/home', async(req, res) => {
+router.post('/homelogin', async(req, res) => {
     var loginData = req.body
         //if(loginData.email.trim() !="" && loginData.password.trim() !=""){
     var userInfos = await Users.findOne({ mail: loginData.email })
@@ -83,7 +85,7 @@ router.post('/home', async(req, res) => {
 
         // if(userInfos.password == passwordCrypt){
         if (userInfos.password == loginData.password) {
-            res.render('home')
+            res.redirect('home')
         } else {
             res.locals = { error: "Password error !" }
             res.render("index")
@@ -120,7 +122,7 @@ router.post("/your_question", async(req, res) => {
         //2.2 - INSERT INTO DATABASE
         await donnee.save();
         //3 - GO BACK TO HOME PAGE
-        res.render("home")
+        res.redirect("home")
     } else {
         res.locals = { error: "Tous les champs sont obligation" }
         res.render("question")

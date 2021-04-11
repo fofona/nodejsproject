@@ -16,19 +16,23 @@
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js"></script>
 </head>
 
-<body style="background-color: #F1F1F1;">
+<body style="background-color: #f1f1f1">
     <header>
-        <div class="uk-navbar-left" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="uk-navbar-left" style="
+          background-color: white;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        ">
             <a class="uk-navbar-item uk-logo" href="#">
-                <img src="images/logoo.png" alt="" width="200px" height="200px" style="margin-left:160px;" />
+                <img src="images/logoo.png" alt="" width="200px" height="200px" style="margin-left: 160px" />
             </a>
 
             <div class="uk-button-group">
                 <button class="uk-button uk-button-default">Category</button>
                 <div class="uk-inline">
                     <button class="uk-button uk-button-default" type="button">
-            <span uk-icon="icon:  triangle-down"></span>
-          </button>
+              <span uk-icon="icon:  triangle-down"></span>
+            </button>
                     <div uk-dropdown="mode: click; boundary: ! .uk-button-group; boundary-align: true;">
                         <ul class="uk-nav uk-dropdown-nav">
                             <li><a href="#">HTML</a></li>
@@ -40,81 +44,54 @@
                 </div>
             </div>
             <div class="uk-navbar-item">
-                <form class="uk-search uk-search-navbar" style="border: 2px solid; width: 500px; height: 40px; color:#D3D3D3; border-radius: 3px;">
+                <form class="uk-search uk-search-navbar" style="
+              border: 2px solid;
+              width: 500px;
+              height: 40px;
+              color: #d3d3d3;
+              border-radius: 3px;
+            ">
                     <span uk-search-icon></span>
                     <input class="uk-search-input" type="search" placeholder="Search" />
                 </form>
             </div>
             <div class="uk-float-left">
                 <button class="btn btn-dark" style="width: 130px; color: #ffffff">
-            <a href="/question"> Ask Question </a>
+            <a href="/question" style="text-decoration: none; color: #ffffff">
+              Ask Question
+            </a>
           </button>
             </div>
-            <a href="./logout"><button class="btn btn-dar" style="width: 150px">Se deconnecter</button></a>
-        </div>
-
+            <a href="./logout"><button class="btn btn-dar" style="width: 150px">
+            Se deconnecter
+          </button></a
+        >
+      </div>
     </header>
-    <!--<div id="publications" class="col-6">
-
-        <% locals.publications.forEach(question=> { %>
-
-            <div class="card">
-                <div class="card-header">
-                    <img src="images/profiles/<%= publication.user.userpicture %>" />
-                    <h1>
-                        <%= publication.user.username %>
-                    </h1>
-                    <a href="javascript:deletePublication('<%= publication._id %>')" style="float: right;"><span
-                            class="fas fa-trash"></span></a>
-    <p>heder</p>
-    </div>
-    <div class="card-body">
-        <p>
-            <%=question.tags %>
-        </p>
-        <p>
-            <%=question.texteQ %>
-        </p>
-    </div>
-    <div class="card-footer">
-        <span class="badge badge-info" ,style="float: right;">
-                                <% var d=new Date( question.datetime ); %>
-                                    <%= d.getHours() + ":" + d.getMinutes() %>
-                            </span>
-        <p style="float: leftt; ">
-            <%= question.category %>
-        </p>
-    </div>
-    </div>
-
-    <% }); %>
-
+    <div id="publications" class="col-6">
+        <% locals.QRCollections.forEach(qrcollections=> { %>
+  
+        <div class="card">
+          <div class="card-header">
+            <p><%=qrcollections.tags %></p>
+          </div>
+          <div class="card-body">
+            
+            <p><%=qrcollections.texteQ %></p>
+          </div>
+          <div class="card-footer">
+            <span class="badge badge-info" ,style="float: right;">
+              <% var d=new Date( qrcollections.datetime ); %> <%= d.getHours() + ":" +
+              d.getMinutes() %>
+            </span>
+            <p style="float: leftt"><%=qrcollections.category %></p>
+          </div>
         </div>
-        <div id="confirmModal" class="modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Delete</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Confirm delete</p>
-                    </div>
-                    <div class="modal-footer" id="modalFooter">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+  
+        <% }); %>
+      </div>
+      <script src="js/jquery-3.6.0.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
 
-        <script src="js/jquery-3.6.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        -->
-
-
-
-</body>
-
+  </body>
 </html>

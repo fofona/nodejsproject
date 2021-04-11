@@ -39,7 +39,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use((req, res, next) => {
     res.locals = {
-
+        "APPNAME": process.env.APPNAME,
+        "VERSION": process.env.VERSION,
         "user": {}
     }
     if (req.session.user)
