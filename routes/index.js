@@ -130,16 +130,73 @@ router.post("/your_question", async(req, res) => {
 
 });
 
+router.get("/search", async(req, res) => {
+    var dataPublications = await question.find({ 'tags': { '$regex': req.query.search } });
+    res.locals.QRCollections = dataPublications;
+    res.render("home");
+});
 
+router.get("/html", async(req, res) => {
+    var dataPublications = await question.find({ "category": "html" })
+    res.locals.html = dataPublications;
+    console.log(dataPublications)
+
+    res.render("html")
+
+});
+
+router.get("/java", async(req, res) => {
+    var dataPublications = await question.find({ "category": "java" })
+    res.locals.java = dataPublications;
+    console.log(dataPublications)
+
+    res.render("java")
+
+});
+
+router.get("/php", async(req, res) => {
+    var dataPublications = await question.find({ "category": "php" })
+    res.locals.php = dataPublications;
+    console.log(dataPublications)
+
+    res.render("php")
+
+});
+
+router.get("/css", async(req, res) => {
+    var dataPublications = await question.find({ "category": "css" })
+    res.locals.css = dataPublications;
+    console.log(dataPublications)
+
+    res.render("css")
+
+});
+
+
+
+router.post('/Reponses', async(req, res) => {
+
+    //console.log(req.body.questionId);
+
+
+    // var dataPublications = await question.find({}).sort({ datetime: -1 });
+    //res.locals.QRCollections = dataPublications;
+
+    var dataPublications = await question.findOne({ _id: req.body.questionId }).sort({ datetime: -1 });;
+    res.locals.QRCollections = dataPublications;
+    //console.log('-----contenu de reponses------')
+    //console.log(reponse)
+    res.render("Repoonse")
+})
 
 
 
 
 
 router.get("/logout", (req, res) => {
-    //DESTROY SESSIONS
-    //req.session.destroy();
-    res.redirect("index")
+
+    req.session.destroy();
+    res.render("index")
 })
 
 

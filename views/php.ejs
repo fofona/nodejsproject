@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+    <%- include('_inc_head') %>
+        <link rel="stylesheet" href="stylesheets/style2.css" />
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body style="background-color: #f1f1f1">
+    <header>
+        <div class="uk-navbar-left" style="
+          background-color: white;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        ">
+            <a class="uk-navbar-item uk-logo" href="/home">
+                <img src="images/logoo.png" alt="" width="200px" height="200px" style="margin-left: 100px; margin-right: 40px;" />
+            </a>
+
+            <div class="uk-button-group">
+                <button class="uk-button uk-button-default">Category</button>
+                <div class="uk-inline">
+                    <button class="uk-button uk-button-default" type="button">
+              <span uk-icon="icon:  triangle-down"></span>
+            </button>
+                    <div uk-dropdown="mode: click; boundary: ! .uk-button-group; boundary-align: true;">
+                        <ul class="uk-nav uk-dropdown-nav">
+                          <li><a href="/html">HTML</a></li>
+ 
+                          <li><a href="/java">JAVA</a></li>
+                          <li>
+                              <a href="/php"></a>PHP</a>
+                          </li>
+                          <li><a href="/css">CSS</a></li>
+                      </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-navbar-item">
+              <form action="/search" class="search-form">
+                  <input type="text" name="search" placeholder=" Search" style="border: 2px solid; width: 400px; height: 30px; border-color:#D3D3D3; border-radius: 3px;" />
+                  <input type="submit" value="Search" style="border: 2px solid; width: 55px; height: 30px; border-color:#D3D3D3; border-radius: 3px;" />
+              </form>
+          </div>
+            <div class="uk-float-left" style=" margin-left : 50px;">
+                <button class="btn btn-dark" style="width: 130px; color: #ffffff">
+            <a href="/question" style="text-decoration: none; color: #ffffff;">
+              Ask Question
+            </a>
+          </button>
+            </div>
+            <a href="./logout"><button class="btn btn-dar" style="width: 150px;">
+            Se deconnecter
+          </button></a>
+      </div>
+    </header>
+    <div id="publications" class="col-6">
+        
+        <% locals.php.forEach(php=> { %>
+  
+        <div class="card" >
+          <div class="card-header" style="background-color:lightblue">
+            <span class="badge badge-info" style="float: right;">
+              <% var d=new Date( php.datetime ); %> <%= d.getHours() + ":" +d.getMinutes() + "__" +d.getDate() + "/" +d.getMonth()  + "/" +d.getFullYear()%>
+            </span>
+            <p> Titre: <%=php.tags %></p>
+            
+          </div>
+          <div class="card-body" style="background-color:wheat">
+            
+            <p>Question: <%=php.texteQ %></p>
+          </div>
+          <div class="card-footer" style="background-color:silver">
+             
+            <p style="float: left">Catégorie: <%=php.category %></p>
+            <div class="uk-float-right">
+              <button class="btn btn-dark" style="width: 130px; color: #ffffff">
+          <a href="#" style="text-decoration: none; color: #ffffff">
+            Reponses
+          </a>
+            </button>
+          
+        </div>
+        </div>
+        </div>
+      </br>
+    </br>
+  </br>
+
+        <% }); %>
+            </div>
+            <script src="js/jquery-3.6.0.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

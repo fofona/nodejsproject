@@ -6,7 +6,7 @@ var session = require('express-session');
 var logger = require('morgan');
 var bodyParser = require("body-parser");
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
 var dotenv = require("dotenv")
 dotenv.config()
 
@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 app.use((req, res, next) => {
     res.locals = {
         "APPNAME": process.env.APPNAME,

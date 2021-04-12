@@ -22,83 +22,58 @@
             <a class="uk-navbar-item uk-logo" href="#">
                 <img src="images/logoo.png" alt="" width="200px" height="200px" style="margin-left:160px;" />
             </a>
+        </div>
 
-            <div class="uk-button-group">
-                <button class="uk-button uk-button-default">Category</button>
-                <div class="uk-inline">
-                    <button class="uk-button uk-button-default" type="button">
-            <span uk-icon="icon:  triangle-down"></span>
-          </button>
-                    <div uk-dropdown="mode: click; boundary: ! .uk-button-group; boundary-align: true;">
-                        <ul class="uk-nav uk-dropdown-nav">
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">JAVA</a></li>
-                            <li><a href="#">PHP</a></li>
-                            <li><a href="#">CSS</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-navbar-item">
-                <form class="uk-search uk-search-navbar" style="border: 2px solid; width: 500px; height: 40px; color:#D3D3D3; border-radius: 3px;">
-                    <span uk-search-icon></span>
-                    <input class="uk-search-input" type="search" placeholder="Search" />
-                </form>
-            </div>
-            <a href="./logout"><button class="btn btn-dar" style="width: 150px">Se deconnecter</button></a>
+        <div class="uk-float-left">
+            <button class="btn btn-dark" style="width: 150px; height: 40px; margin-left: 1080px; margin-top:-100px ; color: #ffffff">
+                <a href="./logout" style="text-decoration: none; color: #ffffff;">Se deconnecter</a>
+            </button>
         </div>
 
     </header>
     <form action="/your_question" method="post">
         <div style="padding-top:2px; height: 1000px;">
             <h3 style="margin-top: 50px; padding-bottom: 20px; margin-left: 195px; font-weight: bold; ">Ask a public question</h3>
-            <div style="background-color: white; width: 1000px; height: 550px; margin-left: 195px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                <div id="question-form">
-                    <div id="title" style="margin-left: 30px; padding-top: 20px;">
-                        <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Title</p>
-                        <p>Be specific and ask your question with precision</p>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="tags" placeholder="e.g. Is it possible to make a text in bold?" style="width: 950px;">
-                    </div>
-
-                    <div id="body" style="margin-left: 30px; padding-top: 20px;">
-                        <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Body</p>
-                        <p>Include all the information someone would need to answer your question</p>
-                        <textarea type="text" class="form-control" id="exampleFormControlInput1" name="texteQ" style="width:950px; height:150px;"></textarea>
-
-                    </div>
-
-                    <div class="uk-margin" style="margin-left: 30px; padding-top: 20px;">
-                        <select type="text" class="uk-select" name="category" style="width: 950px;">
-            <option value="html">HTML</option>
-            <option value="java">JAVA</option>
-            <option value="php">PHP</option>
-            <option value="css">CSS</option>
-        </select>
-                    </div>
-                </div>
-
-                </br>
-                </br>
-                </br>
-                <% if ( locals.error ){ %>
-                    <div class="row">
-                        <div class="col-10 offset-1">
-                            <div class="alert alert-danger">
-                                <%= locals.error %>
-                            </div>
+            <% if ( locals.error ){ %>
+                <div class="row" style="margin-left: 78px; width: 1238px;">
+                    <div class="col-10 offset-1">
+                        <div class="alert alert-danger">
+                            <%= locals.error %>
                         </div>
                     </div>
-                    <% } %>
+                </div>
+                <% } %>
+                    <div style="background-color: white; width: 1000px; height: 550px; margin-left: 195px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <div id="question-form">
+                            <div id="title" style="margin-left: 30px; padding-top: 20px;">
+                                <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Title</p>
+                                <p>Be specific and ask your question with precision</p>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="tags" placeholder="e.g. Is it possible to make a text in bold?" style="width: 950px;">
+                            </div>
 
+                            <div id="body" style="margin-left: 30px; padding-top: 20px;">
+                                <p style="font-weight: bold; font-family: inherit; font-size: 1.15384615rem;">Body</p>
+                                <p>Include all the information someone would need to answer your question</p>
+                                <textarea type="text" class="form-control" id="exampleFormControlInput1" name="texteQ" style="width:950px; height:150px;"></textarea>
 
+                            </div>
+
+                            <div class="uk-margin" style="margin-left: 30px; padding-top: 20px;">
+                                <select type="text" class="uk-select" name="category" style="width: 950px;">
+                            <option value="html">HTML</option>
+                            <option value="java">JAVA</option>
+                            <option value="php">PHP</option>
+                            <option value="css">CSS</option>
+                        </select>
+                            </div>
+                        </div>
+
+                        </br>
+                        </br>
+                        </br>
                         <input type="submit" class="btn btn-dark" value="Post_your_question" style="text-decoration: none ;color:#ffffff;" />
-
-
-            </div>
+                    </div>
     </form>
-
-
-
 </body>
 
 </html>

@@ -7,8 +7,8 @@ var QRSchema = mongoose.Schema({
     category: String,
     texteQ: String,
     datetime: Date,
-    //user: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
-    Reponses: Array
+    Reponses: { texteR: String }
 
 })
+
 module.exports = mongoose.model('QRCollections', QRSchema)
